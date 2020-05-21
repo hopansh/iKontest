@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "576539189054",
+    "firebase_url": "https://ikontest-1e38b.firebaseio.com",
+    "project_id": "ikontest-1e38b",
+    "storage_bucket": "ikontest-1e38b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576539189054:android:80f3b89547555998b7566f",
+        "android_client_info": {
+          "package_name": "com.acadmigo.ikontest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576539189054-o4f652c2h1o7gi5ha7at1i618ddkkahg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.acadmigo.ikontest",
+            "certificate_hash": "008fda2635a41d01abcc561f05aa0d188d900576"
+          }
+        },
+        {
+          "client_id": "576539189054-d253csj8spaugr0mlj3v2h23ic8l3bv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdQxeyiEeVdD_o6VnTnh-5Yf_V7TEakEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576539189054-d253csj8spaugr0mlj3v2h23ic8l3bv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
