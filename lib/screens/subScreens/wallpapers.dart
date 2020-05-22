@@ -19,10 +19,6 @@ class _WallState extends State<Wall> {
           child:Image.asset(
           "assets/images/feed2.jpg",),
         ),
-        Card(
-          child:Image.asset(
-          "assets/images/feed1.jpg",),
-        ),
       ]);
   }
 }

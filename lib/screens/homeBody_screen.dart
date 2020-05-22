@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _bodyIndex = 0;
+int _bodyIndex=0;
   final List<String> category = [
     "Feed", "Contests", "Wallpapers"
   ];
