@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ikontest/screens/home_screen.dart';
+import 'package:ikontest/screens/notificationPanel_screen.dart';
 import 'package:ikontest/screens/search_screen.dart';
 import 'package:ikontest/screens/subScreens/feed.dart';
 import 'package:ikontest/screens/upload_screen.dart';
+import 'package:ikontest/screens/userProfile_screen.dart';
 import '../screens/subScreens/wallpapers.dart';
 import '../screens/subScreens/contest.dart';
 class Home extends StatefulWidget {
@@ -20,15 +23,53 @@ int _bodyIndex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){Navigator.push(
+      backgroundColor: Colors.white,
+      bottomNavigationBar : Container(
+      height: 50.0,
+      child: BottomAppBar(
+        color: Color(0xff4d8080),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home, color: Colors.white),
+              onPressed: () {Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => _bodyIndex==0? UploadScr() : SearchScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );},
-      backgroundColor: Color(0xff4d8080),
-      
-      child: _bodyIndex==0? Icon(Icons.add,size: 40,):Icon(Icons.search,size: 40,)),
-        backgroundColor: Colors.white,
-      
+            ),
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.white),
+              onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );},
+            ),
+            IconButton(
+              icon: Icon(Icons.add_circle, color: Colors.white),
+              onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UploadScr()),
+                );},
+            ),
+            IconButton(
+              icon: Icon(Icons.notifications_active, color: Colors.white),
+              onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPanel()),
+                );},
+            ),
+            IconButton(
+              icon: Icon(Icons.account_circle, color: Colors.white),
+              onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserProfile()),
+                );},
+            )
+          ],
+        ),
+      ),
+      ),
         body: ListView( 
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 5),
