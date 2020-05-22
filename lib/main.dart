@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/home_screen.dart';
+import 'package:ikontest/screens/create_account_screen.dart';
+//import 'package:ikontest/screens/home_screen.dart';
+import './screens/login_screen.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 void main() => runApp(MyApp());
@@ -34,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         highlightColor: Color(0xffcfe2e2),
         
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
