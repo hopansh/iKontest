@@ -34,7 +34,7 @@ return Scaffold(
   drawer: Drawer(
     
     child: ListView(
-      dragStartBehavior: DragStartBehavior.start,
+  
       physics: BouncingScrollPhysics(),
       children: <Widget>[
       
