@@ -14,11 +14,11 @@ String _index="iKontest";
   @override
   Widget build(BuildContext context){
 return Scaffold(
-  backgroundColor: Colors.white,
+  backgroundColor: Color(0xff3a2456),
   appBar: AppBar(
     elevation: 0,
-    backgroundColor: Colors.white,
-    title: Text(_index,style: TextStyle(fontSize: 27,color: Color(0xff568e8f))),
+    centerTitle: true,
+    title: Text(_index,style: TextStyle(fontSize: 27,fontFamily: "Bauhaus-93")),
     actions: <Widget>[
       IconButton(icon: _index=="iKontest" ? Icon(Icons.person_pin): Icon(Icons.search),
       iconSize: 35,
@@ -41,7 +41,7 @@ return Scaffold(
       UserAccountsDrawerHeader(
         arrowColor: Colors.black,
         accountName: Text(" iKontest" ,textAlign: TextAlign.left,style: TextStyle(color:Colors.white,fontSize: 50,fontFamily: "Bauhaus-93",),), 
-        accountEmail: Text("  iKontest" ,textAlign: TextAlign.left,style: TextStyle(color:Color(0xff80b1b3),fontSize: 90,fontFamily: "Bauhaus-93",),), 
+        accountEmail: Text("  iKontest" ,textAlign: TextAlign.left,style: TextStyle(color:Color(0xff3a4256),fontSize: 90,fontFamily: "Bauhaus-93",),), 
       /// currentAccountPicture: CircleAvatar(backgroundImage : AssetImage("assets/images/icon.png")),
 onDetailsPressed: (){},
         ),

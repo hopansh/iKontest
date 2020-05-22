@@ -20,7 +20,7 @@ class _SavedState extends State<Saved> {
           children: <Widget>[
             Container(
             height:70.0,
-            color: Colors.white,
+            color: Color(0xff15171e),
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal:15),
               physics: BouncingScrollPhysics(),
@@ -39,8 +39,8 @@ class _SavedState extends State<Saved> {
                           category[index],
                           style: TextStyle(
                               color: index == _bodyIndex
-                                  ? Color(0xff305050)
-                                  : Color(0xffafcfcf),
+                                  ? Color(0xffffff)
+                                  : Color(0xffa4adc1),
                               fontSize: index == _bodyIndex ? 25.0 : 20),
                         )),
                   );
@@ -48,7 +48,7 @@ class _SavedState extends State<Saved> {
             Container(
               height: 650,
               decoration: BoxDecoration(
-                color: Color(0xffe0ebeb),
+                color: Color(0xffffffff),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40),

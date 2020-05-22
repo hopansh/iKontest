@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ikontest/screens/home_screen.dart';
 import 'package:ikontest/screens/notificationPanel_screen.dart';
+import 'package:ikontest/screens/personProfile_screen.dart';
 import 'package:ikontest/screens/search_screen.dart';
 import 'package:ikontest/screens/subScreens/feed.dart';
 import 'package:ikontest/screens/upload_screen.dart';
@@ -23,20 +24,19 @@ int _bodyIndex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+backgroundColor: Color(0xff15171e),
+
       bottomNavigationBar : Container(
       height: 50.0,
       child: BottomAppBar(
-        color: Color(0xff4d8080),
+        elevation: 5,
+        color: Color(0xff15171e),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home, color: Colors.white),
-              onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );},
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.search, color: Colors.white),
@@ -63,7 +63,7 @@ int _bodyIndex=0;
               icon: Icon(Icons.account_circle, color: Colors.white),
               onPressed: () {Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => UserProfile()),
+                  MaterialPageRoute(builder: (context) => PersonProfile()),
                 );},
             )
           ],
@@ -76,7 +76,7 @@ int _bodyIndex=0;
           children: <Widget>[
             Container(
             height:45.0,
-            color: Colors.white,
+            color: Color(0xff15171e),
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal:15),
               physics: BouncingScrollPhysics(),
@@ -95,24 +95,27 @@ int _bodyIndex=0;
                           category[index],
                           style: TextStyle(
                               color: index == _bodyIndex
-                                  ? Color(0xff305050)
-                                  : Color(0xffafcfcf),
+                                  ? Color(0xffffffff)
+                                  : Color(0xffa4adc1),
                               fontSize: index == _bodyIndex ? 25.0 : 20),
                         )),
                   );
                 })),
             Container(
-              height: 650,
+              height: 700,
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
               decoration: BoxDecoration(
-                color: Color(0xffe0ebeb),
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40),
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20)),
               ),
+              
                    child: funcategory[_bodyIndex],
             ),
+            
           ],
         ));
   }

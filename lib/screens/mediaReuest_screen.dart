@@ -9,7 +9,8 @@ class MediaReq extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            height: 500,
+            height: 300,
+            margin: EdgeInsets.fromLTRB(5, 20, 5, 10),
             decoration: BoxDecoration(
               color: Color(0xffe0ebeb),
               borderRadius: BorderRadius.only(
@@ -25,7 +26,17 @@ class MediaReq extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child:Icon(Icons.add_a_photo,size:80)),
-                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                  IconButton(icon: Icon(Icons.check_circle_outline), onPressed: null,),
+                  Text("Agree to Terms & Condition")],),
+                 FloatingActionButton.extended(onPressed: null, label: Text("Upload",style: TextStyle(fontWeight: FontWeight.bold),),
+   shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.all(Radius.circular(30.0))),
+
+      foregroundColor: Colors.white,
+      )
             ],),
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:ikontest/screens/settings_screen.dart';
 import '../screens/create_account_screen.dart';
 import '../models/user.dart';
 import '../screens/home_screen.dart';
@@ -53,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _googleSignIn.signIn();
   }
   void logout(){
+    
     _googleSignIn.signOut();
   }
   
@@ -79,44 +81,28 @@ class _LoginScreenState extends State<LoginScreen> {
     currentUser=User.fromDocument(doc); 
   }
 
-  Scaffold handleAuthScreen(){
-
-    
-      return Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                onPressed: logout,
-                child: Text("Logout"),
-                
-              ),
-              RaisedButton(
-                onPressed: (){
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder:(context){
-                      return HomeScreen();
-                    })
-                  );
-                },
-                child: Text("HomePage"),
-                
-              ),
-              
-            ],
-          ),
-        ),
-      );
+  handleAuthScreen(){
+      return HomeScreen();    
   }
   Scaffold handleUnAuthScreen(){
     return Scaffold(
-      body: Center(
-        child: RaisedButton(
-          onPressed: login,
-          child: Text("GoogleSignIn"),
-        ),
+      backgroundColor: Color(0xFf15171e) ,
+      appBar: AppBar(
+        title:Text("Login Page"),
+        centerTitle: true,
       ),
+      body: Column(children: <Widget>[
+        Padding(
+          padding: EdgeInsets.fromLTRB(80, 80, 80, 50),
+          child:Center( child: Image.asset("assets/images/i.png",height: 80,width: 80,),),
+        ),
+      FloatingActionButton.extended(onPressed: login, label: Text("Login with Google",style: TextStyle(fontWeight: FontWeight.bold),),
+   shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.all(Radius.circular(30.0))),
+
+      foregroundColor: Colors.white,
+      )
+      ],)
       
     );
   }

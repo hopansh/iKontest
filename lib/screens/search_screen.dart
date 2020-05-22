@@ -19,6 +19,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Search"),
         actions: <Widget>[
@@ -35,7 +36,6 @@ class SearchScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SearchBar(

@@ -29,11 +29,11 @@ class _MyAppState extends State<MyApp> {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        scaffoldBackgroundColor: Color(0xFFf2f2f2),
-        primaryColor: Color(0xff80b1b3),
-        backgroundColor: Color(0xFFffffff),
-        splashColor: Color(0xFFcfe2e2),
-        highlightColor: Color(0xffcfe2e2),
+        scaffoldBackgroundColor: Color(0xFF15171e),
+        primaryColor: Color(0xff15171e),
+        backgroundColor: Color(0xff15171e),
+        splashColor: Color(0xFF3a4256),
+        highlightColor: Color(0xff959eb7),
         
       ),
       home: LoginScreen(),

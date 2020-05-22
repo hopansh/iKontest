@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ikontest/screens/home_screen.dart';
+import 'package:ikontest/screens/notificationPanel_screen.dart';
+import 'package:ikontest/screens/search_screen.dart';
+import 'package:ikontest/screens/upload_screen.dart';
 
 class PersonProfile extends StatefulWidget {
   @override
@@ -11,78 +15,124 @@ class _PersonProfileState extends State<PersonProfile> {
   final List<String> category = ["Posts", "Liked"];
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: Container(
+          height: 50.0,
+          child: BottomAppBar(
+            color: Color(0xff15171e),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.home, color: Colors.white),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.search, color: Colors.white),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SearchScreen()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.add_circle, color: Colors.white),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => UploadScr()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.notifications_active, color: Colors.white),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotificationPanel()),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.account_circle, color: Colors.white),
+                  onPressed: () {},
+                )
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff15171e),
           elevation: 0,
           title: Text("@itsHopansh"),
         ),
         body: Container(
-          color: Color(0xff80b1b3),
-        child: ListView(physics: NeverScrollableScrollPhysics() , children: <Widget>[
+          color: Color(0xff15171e),
+          child: ListView(physics: NeverScrollableScrollPhysics(), children: <
+              Widget>[
             Container(
+              margin: EdgeInsets.fromLTRB(5, 0, 10, 0),
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30))),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30),
+                ),
+              ),
               height: 100,
-              child: ListTile(
-                leading: Icon(
-                  Icons.person,
-                  size: 80,
-                ),
-                title: Text(
-                  "Hopansh Gahlot",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+              child: Row(
+                children: <Widget>[
+                  Image.asset("assets/images/dp1.png"),
+                  Column(
                     children: <Widget>[
-                      Container(
-                        height: 50,
-                        width: 110,
-                        child: Text("Followers\n243",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20)),
+                      Padding(padding: EdgeInsets.symmetric(horizontal:0,vertical: 6),
+                      child:Text("Hopansh Gahlot",textAlign: TextAlign.center,style:TextStyle(fontSize:25)),
                       ),
-                      Container(
-                        height: 30,
-                        width: 100,
-                        child: Text(
-                          "Posts\n52",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
-                        ),
+                   
+                      Row(children: <Widget>[
+                     Padding(padding: EdgeInsets.symmetric(horizontal:25,vertical: 5),
+                      child: Text("Followers\n1275",textAlign: TextAlign.center,style:TextStyle(fontSize:20,color: Colors.black54)),),
+                          Padding(padding: EdgeInsets.symmetric(horizontal:25,vertical: 5),
+                      child: Text("Posts\n54",textAlign: TextAlign.center,style:TextStyle(fontSize:20,color: Colors.black54)),
                       ),
-                    ]),
+                       
+                      ],)
+                    ],
+                  )
+                ],
               ),
             ),
             Container(
-              color: Color(0xff80b1b3),
+              margin: EdgeInsets.fromLTRB(5, 0, 10, 0),
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Text("Follow me @itsHopansh on instagram\nKeep Supporting",
-                  style: TextStyle(fontSize: 18, color: Colors.white)),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                  )),
+              child: Text(
+                  "Follow me @itsHopansh on instagram\nKeep Supporting\n14 Oct 2020",
+                  style: TextStyle(
+                    fontSize: 18,
+                  )),
             ),
             Container(
               height: 670,
               margin: EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
+              color: Colors.white,
               child: ListView(
                 physics: BouncingScrollPhysics(),
- 
-
                 children: <Widget>[
                   Container(
                       height: 45.0,
-               padding: EdgeInsets.symmetric(horizontal: 40,vertical: 5),
-               margin: EdgeInsets.symmetric(horizontal:40),
-                      color: Colors.white,
+                      color: Color(0xff15171e),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 80, vertical: 5),
                       child: ListView.builder(
                           padding: EdgeInsets.symmetric(horizontal: 15),
                           physics: BouncingScrollPhysics(),
@@ -92,7 +142,7 @@ class _PersonProfileState extends State<PersonProfile> {
                             return GestureDetector(
                               onTap: () {
                                 setState(() {
-                                _feedIndex = index;
+                                  _feedIndex = index;
                                 });
                               },
                               child: Padding(
@@ -101,14 +151,15 @@ class _PersonProfileState extends State<PersonProfile> {
                                     category[index],
                                     style: TextStyle(
                                         color: index == _feedIndex
-                                            ? Color(0xff305050)
-                                            : Color(0xffafcfcf),
+                                            ? Colors.white
+                                            : Color(0xffa4adc1),
                                         fontSize:
                                             index == _feedIndex ? 25.0 : 20),
                                   )),
                             );
                           })),
-                          Divider(thickness:3)
+                
+                  
                 ],
               ),
             ),

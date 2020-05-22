@@ -24,9 +24,7 @@ class _ContestState extends State<Contest> {
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-          Card(
-          child: Image.asset("assets/images/Portraits15.jpg"),
-        ),
+          
         Card(
           child: Image.asset("assets/images/Street15.jpg"),
         ),
@@ -41,47 +39,14 @@ class _ContestState extends State<Contest> {
           leading: Icon(Icons.attach_money,size:30),
           trailing: IconButton(icon: Icon(Icons.transit_enterexit,size: 30,), onPressed: null)
         ),
-         Container(
-          height: 200,
-          child:ListView(
-            physics: BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-          Card(
-          child: Image.asset("assets/images/Portraits15.jpg"),
-        ),
-        Card(
-          child: Image.asset("assets/images/Street15.jpg"),
-        ),
-         Card(
-          child: Image.asset("assets/images/Landscape15.jpg"),
-        ),
-          ],)
-        ),
+       
         ListTile(
           contentPadding: EdgeInsets.fromLTRB(20, 5, 10, 2),
           title:Text("45 Days! Contest",style: TextStyle(fontSize:20),),
           leading: Icon(Icons.monetization_on,size:30),
           trailing: IconButton(icon: Icon(Icons.transit_enterexit,size: 30,), onPressed: null)
         ),
-         Container(
-          height: 200,
-          child:ListView(
-            physics: BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            
-            children: <Widget>[
-          Card(
-          child: Image.asset("assets/images/Portraits15.jpg"),
-        ),
-        Card(
-          child: Image.asset("assets/images/Street15.jpg"),
-        ),
-         Card(
-          child: Image.asset("assets/images/Landscape15.jpg"),
-        ),
-          ],)
-        ),
+        
        
       ],
     );
