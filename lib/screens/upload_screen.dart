@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-
-class MediaReq extends StatelessWidget {
+class UploadScr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +18,7 @@ class MediaReq extends StatelessWidget {
             child: ListView(
               padding:EdgeInsets.fromLTRB(10, 30, 10, 30),
               children: <Widget>[
-              Text("Submit your Image For Wallpaper below:",textAlign: TextAlign.center,style: TextStyle(fontSize: 20),),
+              Text("Upload Image",textAlign: TextAlign.center,style: TextStyle(fontSize: 20),),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child:Icon(Icons.add_a_photo,size:80)),

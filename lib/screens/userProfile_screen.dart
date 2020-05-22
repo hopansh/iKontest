@@ -20,7 +20,7 @@ class UserProfile extends StatelessWidget {
                     bottomRight: Radius.circular(20)
                     ),),
           child:Row(children: <Widget>[
-            Image.asset("assets/images/boy.png",height: 150,),
+            Image.asset("assets/images/boy.png",height: 100,),
             Column(children: <Widget>[
               Padding(padding: EdgeInsets.fromLTRB(10, 25, 5, 10),
               child: Text("Hopansh Gahlot",style: TextStyle(fontSize:(30),),),),
