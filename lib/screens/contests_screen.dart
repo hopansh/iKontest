@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ikontest/screens/subScreens/contest.dart';
-class Contests extends StatelessWidget{
+class Contests extends StatefulWidget{
+  @override
+  _ContestsState createState() => _ContestsState();
+}
+
+class _ContestsState extends State<Contests> {
   @override
   Widget build (BuildContext context){
     return Scaffold(
      backgroundColor: Colors.white,
       
-        body: ListView( 
+        body: Stack(children: <Widget>[ListView( 
           padding: EdgeInsets.symmetric(horizontal: 5),
           children: <Widget>[
             Container(
@@ -23,6 +28,7 @@ class Contests extends StatelessWidget{
       ),
           ]
         )
+        ],)
     );
   }
 }

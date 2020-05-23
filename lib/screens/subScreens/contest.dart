@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/search_screen.dart';
 class Contest extends StatefulWidget {
   @override
   _ContestState createState() => _ContestState();
@@ -8,7 +7,7 @@ class Contest extends StatefulWidget {
 class _ContestState extends State<Contest> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Stack(children: <Widget>[ListView(
       padding: EdgeInsets.fromLTRB(0, 0, 0, 35),
       physics: BouncingScrollPhysics(),
       children: <Widget>[
@@ -49,6 +48,7 @@ class _ContestState extends State<Contest> {
         
        
       ],
-    );
+    )
+    ],);
   }
 }

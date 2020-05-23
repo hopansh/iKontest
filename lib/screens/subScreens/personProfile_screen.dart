@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/home_screen.dart';
-import 'package:ikontest/screens/notificationPanel_screen.dart';
-import 'package:ikontest/screens/search_screen.dart';
-import 'package:ikontest/screens/upload_screen.dart';
 
 class PersonProfile extends StatefulWidget {
   @override
@@ -14,65 +10,7 @@ class _PersonProfileState extends State<PersonProfile> {
   int _feedIndex = 0;
   final List<String> category = ["Posts", "Liked"];
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: Container(
-          height: 50.0,
-          child: BottomAppBar(
-            color: Color(0xff15171e),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.home, color: Colors.white),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.search, color: Colors.white),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SearchScreen()),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.add_circle, color: Colors.white),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => UploadScr()),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.notifications_active, color: Colors.white),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => NotificationPanel()),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.account_circle, color: Colors.white),
-                  onPressed: () {},
-                )
-              ],
-            ),
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: Color(0xff15171e),
-          elevation: 0,
-          title: Text("@itsHopansh"),
-        ),
-        body: Container(
+    return  Container(
           color: Color(0xff15171e),
           child: ListView(physics: NeverScrollableScrollPhysics(), children: <
               Widget>[
@@ -158,12 +96,9 @@ class _PersonProfileState extends State<PersonProfile> {
                                   )),
                             );
                           })),
-                
-                  
                 ],
               ),
             ),
-          ]),
-        ));
+              ]));
   }
 }

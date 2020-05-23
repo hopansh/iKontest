@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/create_account_screen.dart';
 //import 'package:ikontest/screens/home_screen.dart';
 import './screens/login_screen.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';

@@ -4,7 +4,7 @@ import 'package:ikontest/screens/contests_screen.dart';
 import 'package:ikontest/screens/faq_screen.dart';
 import 'package:ikontest/screens/homeBody_screen.dart';
 import 'package:ikontest/screens/invite_screen.dart';
-import 'package:ikontest/screens/mediaReuest_screen.dart';
+import 'package:ikontest/screens/mediaRequest_screen.dart';
 import 'package:ikontest/screens/saved_screen.dart';
 import 'package:ikontest/screens/settings_screen.dart';
 import 'package:ikontest/screens/wallpaper_screen.dart';

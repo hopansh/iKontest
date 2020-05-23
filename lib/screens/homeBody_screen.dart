@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/home_screen.dart';
-import 'package:ikontest/screens/notificationPanel_screen.dart';
-import 'package:ikontest/screens/personProfile_screen.dart';
+import 'package:ikontest/functions/bodycall_function.dart';
 import 'package:ikontest/screens/search_screen.dart';
+import 'package:ikontest/screens/subScreens/notificationPanel_screen.dart';
+import 'package:ikontest/screens/subScreens/personProfile_screen.dart';
+import 'package:ikontest/screens/subScreens/upload_screen.dart';
 import 'package:ikontest/screens/subScreens/feed.dart';
-import 'package:ikontest/screens/upload_screen.dart';
-import 'package:ikontest/screens/userProfile_screen.dart';
-import '../screens/subScreens/wallpapers.dart';
 import '../screens/subScreens/contest.dart';
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
+void setState(fn) {
+    
+  }
 }
 
 class _HomeState extends State<Home> {
-int _bodyIndex=0;
-  final List<String> category = [
-    "Feed", "Contests", "Wallpapers"
-  ];
-   final List<StatefulWidget> funcategory = [
-    Feed(), Contest(), Wall()
-  ];
+  StatefulWidget _boxCall=Feed();
+  String _icoColor ="iKontest";
+  String _index="iKontestPage";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+appBar: AppBar(
+    elevation: 0,
+    centerTitle: true,
+    title: Text(_index=="iKontestPage"?_icoColor:_index,style: TextStyle(fontSize: 27,fontFamily: "Bauhaus-93")),
+    actions: <Widget>[
+      IconButton(icon: Icon(Icons.search),
+      iconSize: 35,
+          onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
+      )
+    ],
+  ),
 backgroundColor: Color(0xff15171e),
 
       bottomNavigationBar : Container(
@@ -35,88 +48,206 @@ backgroundColor: Color(0xff15171e),
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.home, color: Colors.white),
-              onPressed: () {},
+              color: _icoColor=="iKontest"? Color(0xffff471a):Colors.white,
+              icon: Icon(Icons.home, ),
+              onPressed: () {
+               super.setState(() {
+                    _boxCall= Feed();
+                     _icoColor="iKontest";
+                  });}
             ),
             IconButton(
-              icon: Icon(Icons.search, color: Colors.white),
-              onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchScreen()),
-                );},
+              color: _icoColor=="Contest"? Color(0xffff471a):Colors.white,
+              icon: Icon(Icons.compare,),
+              onPressed: () {super.setState(() {
+                    _boxCall= Contest();
+                    _icoColor="Contest";
+
+                  });
+              }
             ),
             IconButton(
-              icon: Icon(Icons.add_circle, color: Colors.white),
-              onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UploadScr()),
-                );},
+        color: _icoColor=="Upload"? Color(0xffff471a):Colors.white,
+              icon: Icon(Icons.add_circle, ),
+              onPressed: () {super.setState(() {
+                    _boxCall= UploadScr();
+                     _icoColor="Upload";
+                  });
+                  }
             ),
             IconButton(
-              icon: Icon(Icons.notifications_active, color: Colors.white),
-              onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationPanel()),
-                );},
+              color: _icoColor=="Notifications" ? Color(0xffff471a): Colors.white,
+              icon: Icon(Icons.notifications_active, ),
+              onPressed: () {
+                super.setState(() {
+                _icoColor="Notifications";
+                  _boxCall=NotificationPage();});
+                },
             ),
             IconButton(
-              icon: Icon(Icons.account_circle, color: Colors.white),
-              onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PersonProfile()),
-                );},
+              color: _icoColor=="Profile" ? Color(0xffff471a): Colors.white,
+              icon: Icon(Icons.account_circle,),
+              onPressed: () {super.setState(() {
+                _icoColor="Profile";
+                _boxCall= PersonProfile();});
+                },
             )
           ],
         ),
       ),
       ),
-        body: ListView( 
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(horizontal: 5),
-          children: <Widget>[
-            Container(
-            height:45.0,
-            color: Color(0xff15171e),
-            child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal:15),
-              physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: category.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _bodyIndex = index;
+      drawer: Drawer(
+    
+    child: ListView(
+  
+      physics: BouncingScrollPhysics(),
+      children: <Widget>[
+      
+      UserAccountsDrawerHeader(
+        arrowColor: Colors.black,
+        accountName: Text(" iKontest" ,textAlign: TextAlign.left,style: TextStyle(color:Colors.white,fontSize: 50,fontFamily: "Bauhaus-93",),), 
+        accountEmail: Text("  iKontest" ,textAlign: TextAlign.left,style: TextStyle(color:Color(0xff3a4256),fontSize: 90,fontFamily: "Bauhaus-93",),), 
+      /// currentAccountPicture: CircleAvatar(backgroundImage : AssetImage("assets/images/icon.png")),
+onDetailsPressed: (){},
+        ),
+      ListTile(
+        leading: Icon(Icons.home),
+        title: Text("Home"),
+      selected: _index == "iKontestPage"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "iKontest";
                       });
-                    },
-                    child: Padding(
-                        padding: EdgeInsets.fromLTRB(25, 5, 20, 0),
-                        child: Text(
-                          category[index],
-                          style: TextStyle(
-                              color: index == _bodyIndex
-                                  ? Color(0xffffffff)
-                                  : Color(0xffa4adc1),
-                              fontSize: index == _bodyIndex ? 25.0 : 20),
-                        )),
-                  );
-                })),
-            Container(
+          Navigator.of(context).pop();
+      },
+      ),
+       ListTile(
+        leading: Icon(Icons.compare),
+        title: Text("Contests"),
+         selected: _index == "Contests"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Contests";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+       ListTile(
+        leading: Icon(Icons.photo_size_select_actual),
+        title: Text("Wallpapers"),
+       selected: _index == "Wallpapers"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Wallpapers";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+     ListTile(
+        leading: Icon(Icons.bookmark),
+        title: Text("Saved"),
+      selected: _index == "Saved"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Saved";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+       ListTile(
+        leading: Icon(Icons.add_a_photo),
+        title: Text("Media Request"),
+     selected: _index == "Media Request"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Media Request";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+      ListTile(
+        leading: Icon(Icons.group_add),
+        title: Text("Invite Friends"),
+        selected: _index == "Invite Friends"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Invite Friends";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+       ListTile(
+        leading: Icon(Icons.settings),
+        title: Text("Settings"),
+        selected: _index == "Settings"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "Settings";
+                      });
+          Navigator.of(context).pop();
+      },
+      ),
+      Divider(),
+       ListTile(
+        leading: Icon(Icons.help),
+        title: Text("FAQ"),
+        selected: _index == "FAQ"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "FAQ";
+                      });
+          Navigator.of(context).pop();
+      },
+       
+      ),
+       ListTile(
+        leading: Icon(Icons.info_outline),
+        title: Text("About"),
+       selected: _index == "About"
+                           ? true
+                           : false,
+         onTap: (){
+            super.setState(() {
+                       _index = "About";
+                      });
+          Navigator.of(context).pop();
+      },
+   
+      ),
+       ListTile(
+              subtitle: Text("iKontest v1.0.1"),
+            ),
+    ],),
+  ),
+       
+        body: _index=="iKontestPage"? Container(
               height: 700,
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: _icoColor=="Notification"?Color(0xff15171e) :_icoColor=="Contest"?Color(0xff3a4256): Colors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40),
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
+                    ),
               ),
-              
-                   child: funcategory[_bodyIndex],
-            ),
-            
-          ],
-        ));
+             child: _boxCall,
+            ):BodyFunction(_index),
+        );
   }
 }

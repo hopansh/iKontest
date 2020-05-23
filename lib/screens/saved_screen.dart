@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/subScreens/feed.dart';
-import 'package:ikontest/screens/subScreens/wallpapers.dart';
 class Saved extends StatefulWidget{
   @override
   _SavedState createState() => _SavedState();

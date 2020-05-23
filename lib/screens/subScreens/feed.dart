@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/search_screen.dart';
 
 class Feed extends StatefulWidget {
   @override

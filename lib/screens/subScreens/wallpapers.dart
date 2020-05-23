@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+
 class Wall extends StatefulWidget{
   @override
   _WallState createState() => _WallState();
 }
 
 class _WallState extends State<Wall> {
+  final PageController ctrl= PageController();
   @override
   Widget build (BuildContext context){
-    return ListView(
-      padding: EdgeInsets.fromLTRB(5, 40, 5, 35),
-      physics: BouncingScrollPhysics(),
+    return PageView(
+      scrollDirection: Axis.horizontal,
+      controller: ctrl,
       children: <Widget>[
-        Card(
-          child:Image.asset(
-          "assets/images/feed1.jpg",),
-        ),
-        Card(
-          child:Image.asset(
-          "assets/images/feed2.jpg",),
-        ),
-      ]);
+        Container(color: Colors.yellow),
+        Container(color: Colors.red),
+
+        Container(color: Colors.blue),
+      
+    ],);
   }
 }

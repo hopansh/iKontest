@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:ikontest/screens/settings_screen.dart';
+import 'package:ikontest/screens/homeBody_screen.dart';
 import '../screens/create_account_screen.dart';
 import '../models/user.dart';
 import '../screens/home_screen.dart';
@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   handleAuthScreen(){
-      return HomeScreen();    
+      return Home();    
   }
   Scaffold handleUnAuthScreen(){
     return Scaffold(
