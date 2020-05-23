@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/functions/bodycall_function.dart';
+import 'package:ikontest/screens/about_screen.dart';
+import 'package:ikontest/screens/contests_screen.dart';
+import 'package:ikontest/screens/faq_screen.dart';
+import 'package:ikontest/screens/invite_screen.dart';
+import 'package:ikontest/screens/mediaRequest_screen.dart';
+import 'package:ikontest/screens/saved_screen.dart';
 import 'package:ikontest/screens/search_screen.dart';
+import 'package:ikontest/screens/settings_screen.dart';
 import 'package:ikontest/screens/subScreens/notificationPanel_screen.dart';
 import 'package:ikontest/screens/subScreens/personProfile_screen.dart';
 import 'package:ikontest/screens/subScreens/upload_screen.dart';
 import 'package:ikontest/screens/subScreens/feed.dart';
+import 'package:ikontest/screens/wallpaper_screen.dart';
 import '../screens/subScreens/contest.dart';
 
 class Home extends StatefulWidget {
@@ -38,83 +45,88 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      backgroundColor:Color(0xff15171e),
-      bottomNavigationBar:  _index=="IkontestPage" ?Container(
-        height: 50.0,
-        child: BottomAppBar(
-          elevation: 5,
-          color: Color(0xff15171e),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              IconButton(
-                  color: _icoColor == "iKontest"
-                      ? Color(0xffff471a)
-                      : Colors.white,
-                  icon: Icon(
-                    Icons.home,
-                  ),
-                  onPressed: () {
-                    super.setState(() {
-                      _boxCall = Feed();
-                      _icoColor = "iKontest";
-                    });
-                  }),
-              IconButton(
-                  color:
-                      _icoColor == "Contest" ? Color(0xffff471a) : Colors.white,
-                  icon: Icon(
-                    Icons.compare,
-                  ),
-                  onPressed: () {
-                    super.setState(() {
-                      _boxCall = Contest();
-                      _icoColor = "Contest";
-                    });
-                  }),
-              IconButton(
-                  color:
-                      _icoColor == "Upload" ? Color(0xffff471a) : Colors.white,
-                  icon: Icon(
-                    Icons.add_circle,
-                  ),
-                  onPressed: () {
-                    super.setState(() {
-                      _boxCall = UploadScr();
-                      _icoColor = "Upload";
-                    });
-                  }),
-              IconButton(
-                color: _icoColor == "Notifications"
-                    ? Color(0xffff471a)
-                    : Colors.white,
-                icon: Icon(
-                  Icons.notifications_active,
+      backgroundColor: Color(0xff15171e),
+      bottomNavigationBar: _index == "iKontestPage"
+          ? Container(
+              height: 50.0,
+              child: BottomAppBar(
+                elevation: 5,
+                color: Color(0xff15171e),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    IconButton(
+                        color: _icoColor == "iKontest"
+                            ? Color(0xffff471a)
+                            : Colors.white,
+                        icon: Icon(
+                          Icons.home,
+                        ),
+                        onPressed: () {
+                          super.setState(() {
+                            _boxCall = Feed();
+                            _icoColor = "iKontest";
+                          });
+                        }),
+                    IconButton(
+                        color: _icoColor == "Contest"
+                            ? Color(0xffff471a)
+                            : Colors.white,
+                        icon: Icon(
+                          Icons.compare,
+                        ),
+                        onPressed: () {
+                          super.setState(() {
+                            _boxCall = Contest();
+                            _icoColor = "Contest";
+                          });
+                        }),
+                    IconButton(
+                        color: _icoColor == "Upload"
+                            ? Color(0xffff471a)
+                            : Colors.white,
+                        icon: Icon(
+                          Icons.add_circle,
+                        ),
+                        onPressed: () {
+                          super.setState(() {
+                            _boxCall = UploadScr();
+                            _icoColor = "Upload";
+                          });
+                        }),
+                    IconButton(
+                      color: _icoColor == "Notifications"
+                          ? Color(0xffff471a)
+                          : Colors.white,
+                      icon: Icon(
+                        Icons.notifications_active,
+                      ),
+                      onPressed: () {
+                        super.setState(() {
+                          _icoColor = "Notifications";
+                          _boxCall = NotificationPage();
+                        });
+                      },
+                    ),
+                    IconButton(
+                      color: _icoColor == "Profile"
+                          ? Color(0xffff471a)
+                          : Colors.white,
+                      icon: Icon(
+                        Icons.account_circle,
+                      ),
+                      onPressed: () {
+                        super.setState(() {
+                          _icoColor = "Profile";
+                          _boxCall = PersonProfile();
+                        });
+                      },
+                    )
+                  ],
                 ),
-                onPressed: () {
-                  super.setState(() {
-                    _icoColor = "Notifications";
-                    _boxCall = NotificationPage();
-                  });
-                },
               ),
-              IconButton(
-                color:
-                    _icoColor == "Profile" ? Color(0xffff471a) : Colors.white,
-                icon: Icon(
-                  Icons.account_circle,
-                ),
-                onPressed: () {
-                  super.setState(() {
-                    _icoColor = "Profile";
-                    _boxCall = PersonProfile();
-                  });
-                },
-              )
-            ],
-          ),
-        ),
-      ):null,
+            )
+          : null,
       drawer: Drawer(
         child: ListView(
           physics: BouncingScrollPhysics(),
@@ -149,7 +161,7 @@ class _HomeState extends State<Home> {
               selected: _index == "iKontestPage" ? true : false,
               onTap: () {
                 super.setState(() {
-                  _index = "iKontest";
+                  _index = "iKontestPage";
                 });
                 Navigator.of(context).pop();
               },
@@ -249,22 +261,45 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: _index == "iKontestPage"
-          ? Container(
-              height: 700,
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-              decoration: BoxDecoration(
-                color: _icoColor == "Notification"
-                    ? Color(0xff15171e)
-                    : _icoColor == "Contest" ? Color(0xff3a4256) : Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                ),
-              ),
-              child: _boxCall,
-            )
-          : BodyFunction(_index),
+      body: _index == "iKontestPage" ? firtsPage() : bodyFunction(_index),
     );
+  }
+
+  firtsPage() {
+    return Container(
+      height: 700,
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      decoration: BoxDecoration(
+        color: _icoColor == "Notifications"
+            ? Color(0xff15171e)
+            : _icoColor == "Contest" ? Color(0xff3a4256) : Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40),
+          topRight: Radius.circular(40),
+        ),
+      ),
+      child: _boxCall,
+    );
+  }
+
+  bodyFunction(String _index) {
+    if (_index == "About")
+      return About();
+    else if (_index == "Wallpapers")
+      return Wallpapers();
+    else if (_index == "Contests")
+      return Contests();
+    else if (_index == "Saved")
+      return Saved();
+    else if (_index == "Media Request")
+      return MediaReq();
+    else if (_index == "Invite Friends")
+      return Invite();
+    else if (_index == "Settings")
+      return Settings();
+    else if (_index == "FAQ")
+      return FAQ();
+    else
+      return firtsPage();
   }
 }

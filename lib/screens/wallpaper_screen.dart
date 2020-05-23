@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/text.dart';
 
 class Wallpapers extends StatefulWidget{
   @override
