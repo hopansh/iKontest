@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ikontest/screens/subScreens/contest.dart';
+import 'package:ikontest/screens/contest.dart';
 class Contests extends StatefulWidget{
   @override
   _ContestsState createState() => _ContestsState();
