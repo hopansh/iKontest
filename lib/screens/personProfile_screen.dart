@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:ikontest/screens/login_screen.dart';
 import 'dart:ui';
 import 'package:ikontest/screens/posted.dart' as posted;
 import 'package:ikontest/screens/rewarded.dart' as rewarded;
@@ -8,6 +10,7 @@ class PersonProfile extends StatefulWidget {
   PersonProfile(this.mycolor,this.mycolor2,this.lTheme);
   final List<int> mycolor;
   final List<int> mycolor2;
+
 bool lTheme=true;
   @override
   _PersonProfileState createState() => _PersonProfileState();
@@ -45,7 +48,8 @@ class _PersonProfileState extends State<PersonProfile> with SingleTickerProvider
             height: 100,
             child: Row(
               children: <Widget>[
-                Image.asset("assets/images/dp1.png"),
+        
+                
                 Column(
                   children: <Widget>[
                     Padding(

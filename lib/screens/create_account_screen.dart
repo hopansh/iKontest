@@ -44,13 +44,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   child: Center(
                     child: Text(
                       "Create a username",
-                      style: TextStyle(fontSize: 25.0),
+                      style: TextStyle(fontSize: 25.0,color: Colors.white),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16,16,16,0),
                   child: TextFormField(
+                    
                           validator: (val) {
                             if (val.trim().length < 3 || val.isEmpty) {
                               return "Username too short";
@@ -63,10 +64,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           onSaved: (val) => username = val,
                           decoration: InputDecoration(
                              fillColor: Colors.white,
-                            focusColor: Color(0xff3a4256),
+                            focusColor: Color(0xffffffff),
                             border: OutlineInputBorder(),
                             labelText: "Username",
-                            labelStyle: TextStyle(fontSize: 15.0,color: Color(0xff15171e)),
+                            labelStyle: TextStyle(fontSize: 15.0,color: Color(0xffffffff)),
                             hintText: "Must be at least 3 characters",
                           ),
                         ),
@@ -76,7 +77,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   child: Center(
                     child: Text(
                       "Enter your number",
-                      style: TextStyle(fontSize: 25.0,color: Color(0xff15171e)),
+                      style: TextStyle(fontSize: 25.0,color: Color(0xffffffff)),
                     ),
                   ),
                 ),
@@ -96,8 +97,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           },
                           onSaved: (val) => number = val,
                           decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            focusColor: Color(0xff3a4256),
+                            fillColor: Color(0xff3a4256),
+                            focusColor: Color(0xffffffff),
                             border: OutlineInputBorder(),
                             labelText: "Phone Number",
                             labelStyle: TextStyle(fontSize: 15.0),
@@ -113,13 +114,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     width: 350.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(7.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Center(
                       child: Text(
                         "Submit",
                         style: TextStyle(
-                            color: Color(0xff15171e),
+                            color: Color(0xff3a4256),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold),
                       ),

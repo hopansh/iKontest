@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ikontest/screens/about_screen.dart';
 import 'package:ikontest/screens/contest.dart';
 import 'package:ikontest/screens/contests_screen.dart';
@@ -16,6 +17,9 @@ import 'package:ikontest/screens/upload_screen.dart';
 import 'package:ikontest/screens/wallpaper_screen.dart';
 
 class Home extends StatefulWidget {
+  
+GoogleSignIn _googleSignIn = GoogleSignIn();
+Home(this._googleSignIn);
   @override
   _HomeState createState() => _HomeState();
   void setState(fn) {}
@@ -263,6 +267,12 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
+                   ListTile(
+                    leading: Icon(Icons.cancel),
+                    title: Text("Logout"),
+                    selected: _index == "Logout" ? true : false,
+                    onTap: () {signOutGoogle();}
+                  ),
                 
               ListTile(
                     leading: Icon(Icons.help),
@@ -297,7 +307,11 @@ class _HomeState extends State<Home> {
         body: _index == "iKontestPage" ? firtsPage() : bodyFunction(_index),
     );
   }
+void signOutGoogle() async{
+  await widget._googleSignIn.signOut();
 
+  print("User Sign Out");
+}
   firtsPage() {
     return Container(
       height: double.infinity,

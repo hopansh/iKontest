@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   handleAuthScreen() {
-     return Home();
+     return Home(_googleSignIn);
   }
 
   Scaffold handleUnAuthScreen() {
@@ -98,17 +98,34 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: 80,
                 ),
               ),
-            ),
-            FloatingActionButton.extended(
-              onPressed: login,
-              label: Text(
-                "Login with Google",
-                style: TextStyle(fontWeight: FontWeight.bold),
+            ), 
+        OutlineButton(
+      splashColor: Colors.grey,
+      onPressed: login,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+      highlightElevation: 0,
+      borderSide: BorderSide(color: Colors.grey),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(image: AssetImage("assets/images/google_logo.png"), height: 35.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                'Sign in with Google',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
               ),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30.0))),
-              foregroundColor: Colors.white,
             )
+          ],
+        ),
+      ),
+           )
           ],
         ));
   }
