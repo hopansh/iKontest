@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
           height: 280,
-      color: Colors.white,
+        color: Colors.white,
       child: ListView(
         children: <Widget>[
           

@@ -12,68 +12,65 @@ class _FeedState extends State<Feed> {
       
       physics: BouncingScrollPhysics(),
       children: <Widget>[
-        ListTile(
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          leading: Icon(Icons.person_pin, size: 40),
-          title: Text(
-            "Hopansh Gahlot",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-          trailing: IconButton(icon: Icon(Icons.more_horiz), onPressed: () {}),
-             dense: true,
-          subtitle: Text("Najibabad"),
-        ),
-        Image.asset(
-          "assets/images/feed1.jpg",
-        ),
-        ListTile(
-          
-          leading: IconButton(
-              icon: Icon(Icons.favorite_border),
-              onPressed: () {
-                setState(() {
-                  print("Liked");
-                });
-              }),
-          trailing: IconButton(icon: Icon(Icons.bookmark_border), onPressed: () {}),
-          title: Text("163 Likes"),
-          dense: true,
-          contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        ),
-        Divider(thickness:2),
-        ListTile(
-             dense: true,
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          leading: Icon(Icons.person_pin, size: 40),
-          trailing: IconButton(icon: Icon(Icons.more_horiz), onPressed: () {}),
-          title: Text(
-            "Hopansh Gahlot",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-          subtitle: Text("Bhubaneshwar"),
-        ),
-        Image.asset(
-          "assets/images/feed2.jpg",
-        ),
-        ListTile(
-             dense: true,
-          leading: IconButton(
-              icon: Icon(Icons.favorite_border),
-              onPressed: () {
-                setState(() {
-                  print("Liked");
-                });
-              }),
-          trailing: IconButton(icon: Icon(Icons.bookmark_border), onPressed: () {}),
-          title: Text("128 Likes"),
-         
-          contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-        ),
-      ],
-    );
-  }
+    
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+      child: ListTile(
+        leading: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/dp1.png"),),
+        title:Text("Hopansh Gahlot",style: TextStyle(fontWeight: FontWeight.bold),),
+        trailing: IconButton(icon:Icon(Icons.more_vert),onPressed: null,),
+        
+      ),
+    ),
+    Container(
+      height: 250,
+      child: Image.asset("assets/images/dp1.png",fit: BoxFit.cover,)),
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+      child: ListTile(leading: IconButton(icon:Icon(Icons.favorite_border),onPressed: null),
+      title: Text("Likes"),
+      trailing: IconButton(icon: Icon(Icons.bookmark_border), onPressed: null),),
+    ),
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+      child: ListTile(
+        leading: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/dp1.png"),),
+        title:Text("Hopansh Gahlot",style: TextStyle(fontWeight: FontWeight.bold),),
+        trailing: IconButton(icon:Icon(Icons.more_vert),onPressed: null,),
+        
+      ),
+    ),
+    Container(
+      height: 250,
+      child: Image.asset("assets/images/dp1.png",fit: BoxFit.cover,)),
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+      child: ListTile(leading: IconButton(icon:Icon(Icons.favorite_border),onPressed: null),
+      title: Text("Likes"),
+      trailing: IconButton(icon: Icon(Icons.bookmark_border), onPressed: null),),
+    ),
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+      child: ListTile(
+        leading: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/dp1.png"),),
+        title:Text("Hopansh Gahlot",style: TextStyle(fontWeight: FontWeight.bold),),
+        trailing: IconButton(icon:Icon(Icons.more_vert),onPressed: null,),
+        
+      ),
+    ),
+    Container(
+      height: 250,
+      child: Image.asset("assets/images/dp1.png",fit: BoxFit.cover,)),
+    Container(
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+      child: ListTile(leading: IconButton(icon:Icon(Icons.favorite_border),onPressed: null),
+      title: Text("Likes"),
+      trailing: IconButton(icon: Icon(Icons.bookmark_border), onPressed: null),),
+    ),
+  ],);
 }
+}
+

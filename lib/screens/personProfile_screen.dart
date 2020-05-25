@@ -6,8 +6,8 @@ import 'package:ikontest/screens/rewarded.dart' as rewarded;
 class PersonProfile extends StatefulWidget {
   
   PersonProfile(this.mycolor,this.mycolor2,this.lTheme);
-  List<int> mycolor;
-  List<int> mycolor2;
+  final List<int> mycolor;
+  final List<int> mycolor2;
 bool lTheme=true;
   @override
   _PersonProfileState createState() => _PersonProfileState();
@@ -35,7 +35,7 @@ class _PersonProfileState extends State<PersonProfile> with SingleTickerProvider
         child: ListView(physics: NeverScrollableScrollPhysics(), children: <
             Widget>[
           Container(
-            margin: EdgeInsets.fromLTRB(5, 0, 10, 0),
+            margin: EdgeInsets.fromLTRB(3, 0, 3, 0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -80,7 +80,7 @@ class _PersonProfileState extends State<PersonProfile> with SingleTickerProvider
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(5, 0, 10, 0),
+            margin: EdgeInsets.fromLTRB(3, 0, 3, 0),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -105,8 +105,7 @@ class _PersonProfileState extends State<PersonProfile> with SingleTickerProvider
             new Tab(icon:Icon(Icons.card_giftcard)),
        ]),
     new Container(
-      
-      height: 510,
+      height: 500,
                        padding: EdgeInsets.fromLTRB(5, 5, 5, 37),
                        child: new TabBarView(
                          controller: controller,

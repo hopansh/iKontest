@@ -9,12 +9,13 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[ListView(
+      padding: EdgeInsets.symmetric(horizontal:5),
         children: <Widget>[
           Divider(),
           Container(
             decoration: BoxDecoration(
               color:Color(0xff3a4256),
-              borderRadius: BorderRadius.all(Radius.circular(20.0))
+              borderRadius: BorderRadius.all(Radius.circular(30.0))
             ),
             child: ListTile(
               title: Text("Vibhor liked your Photo",style: TextStyle(color: Colors.white)),
@@ -25,7 +26,7 @@ class _NotificationPageState extends State<NotificationPage> {
           Container(
             decoration: BoxDecoration(
               color:Color(0xff3a4256),
-              borderRadius: BorderRadius.all(Radius.circular(20.0))
+              borderRadius: BorderRadius.all(Radius.circular(30.0))
             ),
             child: ListTile(
               title: Text("You are ranking 3rd in Contest",style: TextStyle(color: Colors.white)),
@@ -36,7 +37,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 Container(
             decoration: BoxDecoration(
               color:Color(0xff3a4256),
-              borderRadius: BorderRadius.all(Radius.circular(20.0))
+              borderRadius: BorderRadius.all(Radius.circular(30.0))
             ),
             child: ListTile(
               title: Text("Share your posts to gain like",style: TextStyle(color: Colors.white)),

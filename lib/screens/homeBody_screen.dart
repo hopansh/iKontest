@@ -5,6 +5,7 @@ import 'package:ikontest/screens/contests_screen.dart';
 import 'package:ikontest/screens/faq_screen.dart';
 import 'package:ikontest/screens/feed.dart';
 import 'package:ikontest/screens/invite_screen.dart';
+
 import 'package:ikontest/screens/mediaRequest_screen.dart';
 import 'package:ikontest/screens/notificationPanel_screen.dart';
 import 'package:ikontest/screens/personProfile_screen.dart';
@@ -21,48 +22,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  StatefulWidget _boxCall = Feed();
-  String _icoColor = "iKontest";
-  String _index = "iKontestPage";
-  bool lTheme = false;
-  List<int> mycolor2 = [0xffffffff, 0xff80ccff];
-  List<int> mycolor = [0xff15171e, 0xffff471a];
+ static StatefulWidget _boxCall = Feed();
+ static String _icoColor = "iKontest";
+  static String _index = "iKontestPage";
+  static bool lTheme = false;
+  final List<int> mycolor2 = [0xffffffff,0xff3a4256,0xff7683a2, 0xff80ccff];
+  final List<int> mycolor = [0xff15171e, 0xffff471a];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'iKontest',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        scaffoldBackgroundColor:
-            lTheme == true ? Color(mycolor2[0]) : Color(0xFF15171e),
-        primaryColor: lTheme == true ? Color(mycolor2[0]) : Color(0xFF15171e),
-        backgroundColor:
-            lTheme == true ? Color(mycolor2[0]) : Color(0xFF15171e),
-        splashColor: Color(0xFF3a4256),
-        highlightColor: Color(0xff959eb7),
-        primaryColorLight: Color(mycolor[0]),
-        primaryColorDark: Color(0xff000000),
-      ),
-      home: Scaffold(
+    return  Scaffold(
+      
         appBar: AppBar(
+          backgroundColor: lTheme==true? Color(mycolor2[1]):Color(mycolor[0]),
           elevation: 0,
           centerTitle: true,
           title: Text(_index == "iKontestPage" ? _icoColor : _index,
               style: TextStyle(
                 fontSize: 27,
                 fontFamily: "Bauhaus-93",
-                color: lTheme == true ? Color(mycolor2[1]) : Color(mycolor2[0]),
+                color: Color(mycolor2[0]),
               )),
           actions: <Widget>[
             IconButton(
+              color: Color(mycolor2[0]),
               icon: Icon(Icons.search),
               iconSize: 35,
               onPressed: () {
@@ -175,15 +157,13 @@ class _HomeState extends State<Home> {
               physics: BouncingScrollPhysics(),
               children: <Widget>[
                 UserAccountsDrawerHeader(
-                  arrowColor: lTheme == true ? Colors.black : Colors.white,
+                  arrowColor: Colors.white,
 
                   accountName: Text(
                     " iKontest",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: lTheme == true
-                          ? Color(mycolor2[1])
-                          : Color(mycolor2[0]),
+                      color: Color(mycolor2[0]),
                       fontSize: 50,
                       fontFamily: "Bauhaus-93",
                     ),
@@ -205,10 +185,7 @@ class _HomeState extends State<Home> {
                     });
                   },
                 ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+               ListTile(
                     leading: Icon(Icons.home),
                     title: Text("Home"),
                     selected: _index == "iKontestPage" ? true : false,
@@ -219,11 +196,8 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+                
+              ListTile(
                     leading: Icon(Icons.compare),
                     title: Text("Contests"),
                     selected: _index == "Contests" ? true : false,
@@ -234,11 +208,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+                ListTile(
                     leading: Icon(Icons.photo_size_select_actual),
                     title: Text("Wallpapers"),
                     selected: _index == "Wallpapers" ? true : false,
@@ -249,11 +219,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+               ListTile(
                     leading: Icon(Icons.bookmark),
                     title: Text("Saved"),
                     selected: _index == "Saved" ? true : false,
@@ -264,11 +230,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+               ListTile(
                     leading: Icon(Icons.add_a_photo),
                     title: Text("Media Request"),
                     selected: _index == "Media Request" ? true : false,
@@ -279,11 +241,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+               ListTile(
                     leading: Icon(Icons.group_add),
                     title: Text("Invite Friends"),
                     selected: _index == "Invite Friends" ? true : false,
@@ -294,11 +252,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+               ListTile(
                     leading: Icon(Icons.settings),
                     title: Text("Settings"),
                     selected: _index == "Settings" ? true : false,
@@ -309,11 +263,8 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+                
+              ListTile(
                     leading: Icon(Icons.help),
                     title: Text("FAQ"),
                     selected: _index == "FAQ" ? true : false,
@@ -324,11 +275,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
-                Container(
-                  color:
-                      lTheme == false ? Color(0xffffffff) : Color(mycolor2[1]),
-                  child: ListTile(
+             ListTile(
                     leading: Icon(Icons.info_outline),
                     title: Text("About"),
                     selected: _index == "About" ? true : false,
@@ -339,7 +286,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop();
                     },
                   ),
-                ),
+                
                 ListTile(
                   subtitle: Text("iKontest v1.0.1"),
                 ),
@@ -348,13 +295,12 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: _index == "iKontestPage" ? firtsPage() : bodyFunction(_index),
-      ),
     );
   }
 
   firtsPage() {
     return Container(
-      height: 700,
+      height: double.infinity,
       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       decoration: BoxDecoration(
         color: lTheme==true? Colors.white :  _icoColor == "Notifications"
@@ -377,11 +323,11 @@ class _HomeState extends State<Home> {
     else if (_index == "Contests")
       return Contests();
     else if (_index == "Saved")
-      return Saved();
+      return Saved(lTheme);
     else if (_index == "Media Request")
       return MediaReq();
     else if (_index == "Invite Friends")
-      return Invite();
+      return Invite(lTheme);
     else if (_index == "Settings")
       return Settings();
     else if (_index == "FAQ")
