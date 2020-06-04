@@ -6,7 +6,6 @@ import 'package:ikontest/screens/contests_screen.dart';
 import 'package:ikontest/screens/faq_screen.dart';
 import 'package:ikontest/screens/feed.dart';
 import 'package:ikontest/screens/invite_screen.dart';
-
 import 'package:ikontest/screens/mediaRequest_screen.dart';
 import 'package:ikontest/screens/notificationPanel_screen.dart';
 import 'package:ikontest/screens/personProfile_screen.dart';
@@ -17,309 +16,143 @@ import 'package:ikontest/screens/upload_screen.dart';
 import 'package:ikontest/screens/wallpaper_screen.dart';
 
 class Home extends StatefulWidget {
-  
-GoogleSignIn _googleSignIn = GoogleSignIn();
-Home(this._googleSignIn);
+  GoogleSignIn _googleSignIn = GoogleSignIn();
+  Home(this._googleSignIn);
   @override
   _HomeState createState() => _HomeState();
   void setState(fn) {}
 }
 
 class _HomeState extends State<Home> {
- static StatefulWidget _boxCall = Feed();
- static String _icoColor = "iKontest";
+  static StatefulWidget _boxCall = Feed();
+  static String _icoColor = "iKontest";
   static String _index = "iKontestPage";
   static bool lTheme = false;
-  final List<int> mycolor2 = [0xffffffff,0xff3a4256,0xff7683a2, 0xff80ccff];
+  final List<int> mycolor2 = [0xffffffff, 0xff3a4256, 0xff7683a2, 0xff80ccff];
   final List<int> mycolor = [0xff15171e, 0xffff471a];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      
-        appBar: AppBar(
-          backgroundColor: lTheme==true? Color(mycolor2[1]):Color(mycolor[0]),
-          elevation: 0,
-          centerTitle: true,
-          title: Text(_index == "iKontestPage" ? _icoColor : _index,
-              style: TextStyle(
-                fontSize: 27,
-                fontFamily: "Bauhaus-93",
-                color: Color(mycolor2[0]),
-              )),
-          actions: <Widget>[
-            IconButton(
-              color: Color(mycolor2[0]),
-              icon: Icon(Icons.search),
-              iconSize: 35,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchScreen()),
-                );
-              },
-            )
-          ],
-        ),
+    final appBar=AppBar(
         backgroundColor:
-            lTheme == true ? Color(mycolor2[0]) : Color(0xff15171e),
-        bottomNavigationBar: _index == "iKontestPage"
-            ? Container(
-                height: 50.0,
-                child: BottomAppBar(
-                  elevation: 5,
-                  color:
-                      lTheme == true ? Color(mycolor2[0]) : Color(0xff15171e),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      IconButton(
-                          color: _icoColor == "iKontest"
-                              ? Color(0xffff471a)
-                              : lTheme == true
-                                  ? Color(mycolor2[1])
-                                  : Color(mycolor2[0]),
-                          icon: Icon(
-                            Icons.home,
-                          ),
-                          onPressed: () {
-                            super.setState(() {
-                              _boxCall = Feed();
-                              _icoColor = "iKontest";
-                            });
-                          }),
-                      IconButton(
-                          color: _icoColor == "Contest"
-                              ? Color(0xffff471a)
-                              : lTheme == true
-                                  ? Color(mycolor2[1])
-                                  : Color(mycolor2[0]),
-                          icon: Icon(
-                            Icons.compare,
-                          ),
-                          onPressed: () {
-                            super.setState(() {
-                              _boxCall = Contest();
-                              _icoColor = "Contest";
-                            });
-                          }),
-                      IconButton(
-                          color: _icoColor == "Upload"
-                              ? Color(0xffff471a)
-                              : lTheme == true
-                                  ? Color(mycolor2[1])
-                                  : Color(mycolor2[0]),
-                          icon: Icon(
-                            Icons.add_circle,
-                          ),
-                          onPressed: () {
-                            super.setState(() {
-                              _boxCall = UploadScr();
-                              _icoColor = "Upload";
-                            });
-                          }),
-                      IconButton(
-                        color: _icoColor == "Notifications"
-                            ? Color(0xffff471a)
-                            : lTheme == true
-                                ? Color(mycolor2[1])
-                                : Color(mycolor2[0]),
-                        icon: Icon(
-                          Icons.notifications_active,
-                        ),
-                        onPressed: () {
-                          super.setState(() {
-                            _icoColor = "Notifications";
-                            _boxCall = NotificationPage();
-                          });
-                        },
-                      ),
-                      IconButton(
-                        color: _icoColor == "Profile"
-                            ? Color(0xffff471a)
-                            : lTheme == true
-                                ? Color(mycolor2[1])
-                                : Color(mycolor2[0]),
-                        icon: Icon(
-                          Icons.account_circle,
-                        ),
-                        onPressed: () {
-                          super.setState(() {
-                            _icoColor = "Profile";
-                            _boxCall = PersonProfile(mycolor, mycolor2, lTheme);
-                          });
-                        },
-                      )
-                    ],
+            lTheme == true ? Color(mycolor2[1]) : Color(mycolor[0]),
+        elevation: 0,
+        centerTitle: true,
+        title: Text(_index == "iKontestPage" ? _icoColor : _index,
+            style: TextStyle(
+              fontSize: 27,
+              fontFamily: "Bauhaus-93",
+              color: Color(mycolor2[0]),
+            )),
+        actions: <Widget>[
+          IconButton(
+            color: Color(mycolor2[0]),
+            icon: Icon(Icons.search),
+            iconSize: 35,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchScreen()),
+              );
+            },
+          )
+        ],
+      );
+     final screenSize =
+        MediaQuery.of(context).size.height - appBar.preferredSize.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: appBar,
+      backgroundColor: lTheme == true ? Color(mycolor2[0]) : Color(0xff15171e),
+      bottomNavigationBar: _index == "iKontestPage"
+          ? Container(
+              height: screenSize*0.07,
+              child: BottomAppBar(
+                elevation: 5,
+                color: lTheme == true ? Color(mycolor2[0]) : Color(0xff15171e),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    navbarButton("iKontest", Icons.home, Feed()),
+                    navbarButton("Contest", Icons.compare, Contest()),
+                    navbarButton("Upload", Icons.add_circle, UploadScr()),
+                    navbarButton("Notification", Icons.notifications_active,
+                        NotificationPage()),
+                    navbarButton("Profile", Icons.account_circle,
+                        PersonProfile(mycolor, mycolor2, lTheme)),
+                  ],
+                ),
+              ),
+            )
+          : null,
+      drawer: Container(
+        color: Color(0xffffffff),
+        child: Drawer(
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                arrowColor: Colors.white,
+                accountName: Text(
+                  " iKontest",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Color(mycolor2[0]),
+                    fontSize: 50,
+                    fontFamily: "Bauhaus-93",
                   ),
                 ),
-              )
-            : null,
-        drawer: Container(
-          color: Color(0xffffffff),
-          child: Drawer(
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              children: <Widget>[
-                UserAccountsDrawerHeader(
-                  arrowColor: Colors.white,
-
-                  accountName: Text(
-                    " iKontest",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Color(mycolor2[0]),
-                      fontSize: 50,
-                      fontFamily: "Bauhaus-93",
-                    ),
+                accountEmail: Text(
+                  "  iKontest",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Color(0xff3a4256),
+                    fontSize: 90,
+                    fontFamily: "Bauhaus-93",
                   ),
-                  accountEmail: Text(
-                    "  iKontest",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Color(0xff3a4256),
-                      fontSize: 90,
-                      fontFamily: "Bauhaus-93",
-                    ),
-                  ),
-
-                  /// currentAccountPicture: CircleAvatar(backgroundImage : AssetImage("assets/images/icon.png")),
-                  onDetailsPressed: () {
-                    setState(() {
-                      lTheme = !lTheme;
-                    });
-                  },
                 ),
-               ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text("Home"),
-                    selected: _index == "iKontestPage" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "iKontestPage";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                
+                onDetailsPressed: () {
+                  setState(() {
+                    lTheme = !lTheme;
+                  });
+                },
+              ),
+              drawerTile(Icons.home, "Home", "iKontestPage"),
+              drawerTile(Icons.compare, "Contests", "Contests"),
+              drawerTile(Icons.photo_size_select_actual, "Wallpapers", "Wallpapers"),
+              drawerTile(Icons.bookmark, "Saved", "Saved"),
+              drawerTile(Icons.add_a_photo, "Add my Wallpaper", "Media Request"),
+              drawerTile(Icons.group_add, "Invite Friends", "Invite Friends"),
+              drawerTile(Icons.settings, "Settings", "Settings"),
+              ListTile(leading: Icon(Icons.cancel),title:Text("Logout"),
+              onTap: (){
+                signOutGoogle();
+              },),
+              drawerTile(Icons.help, "FAQ", "FAQ"),
+              drawerTile(Icons.info_outline, "About", "About"),
               ListTile(
-                    leading: Icon(Icons.compare),
-                    title: Text("Contests"),
-                    selected: _index == "Contests" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Contests";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ListTile(
-                    leading: Icon(Icons.photo_size_select_actual),
-                    title: Text("Wallpapers"),
-                    selected: _index == "Wallpapers" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Wallpapers";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-               ListTile(
-                    leading: Icon(Icons.bookmark),
-                    title: Text("Saved"),
-                    selected: _index == "Saved" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Saved";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-               ListTile(
-                    leading: Icon(Icons.add_a_photo),
-                    title: Text("Media Request"),
-                    selected: _index == "Media Request" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Media Request";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-               ListTile(
-                    leading: Icon(Icons.group_add),
-                    title: Text("Invite Friends"),
-                    selected: _index == "Invite Friends" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Invite Friends";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-               ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text("Settings"),
-                    selected: _index == "Settings" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "Settings";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                   ListTile(
-                    leading: Icon(Icons.cancel),
-                    title: Text("Logout"),
-                    selected: _index == "Logout" ? true : false,
-                    onTap: () {signOutGoogle();}
-                  ),
-                
-              ListTile(
-                    leading: Icon(Icons.help),
-                    title: Text("FAQ"),
-                    selected: _index == "FAQ" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "FAQ";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-             ListTile(
-                    leading: Icon(Icons.info_outline),
-                    title: Text("About"),
-                    selected: _index == "About" ? true : false,
-                    onTap: () {
-                      super.setState(() {
-                        _index = "About";
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                
-                ListTile(
-                  subtitle: Text("iKontest v1.0.1"),
-                ),
-              ],
-            ),
+                subtitle: Text("iKontest v1.0.1"),
+              ),
+            ],
           ),
         ),
-        body: _index == "iKontestPage" ? firtsPage() : bodyFunction(_index),
-    );
+      ),
+      body: _index == "iKontestPage" ? firtsPage() :  bodyFunction(_index)); 
   }
-void signOutGoogle() async{
-  await widget._googleSignIn.signOut();
 
-  print("User Sign Out");
-}
+  void signOutGoogle() async {
+    await widget._googleSignIn.signOut();
+
+    print("User Sign Out");
+  }
+
   firtsPage() {
     return Container(
       height: double.infinity,
       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       decoration: BoxDecoration(
-        color: lTheme==true? Colors.white :  _icoColor == "Notifications"
-            ? Color(0xff15171e)
-            : Colors.white,
+        color: lTheme == true
+            ? Colors.white
+            : _icoColor == "Notifications" ? Color(0xff15171e) : Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(40),
           topRight: Radius.circular(40),
@@ -348,5 +181,35 @@ void signOutGoogle() async{
       return FAQ();
     else
       return firtsPage();
+  }
+
+  navbarButton(String name, IconData icon, Widget func) {
+    return IconButton(
+        color: _icoColor == name
+            ? Color(0xffff471a)
+            : lTheme == true ? Color(mycolor2[1]) : Color(mycolor2[0]),
+        icon: Icon(
+          icon,
+        ),
+        onPressed: () {
+          super.setState(() {
+            _boxCall = func;
+            _icoColor = name;
+          });
+        });
+  }
+
+  drawerTile(IconData icon, String title, String name) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      selected: _index == name ? true : false,
+      onTap: () {
+        super.setState(() {
+          _index = name;
+        });
+        Navigator.of(context).pop();
+      },
+    );
   }
 }
